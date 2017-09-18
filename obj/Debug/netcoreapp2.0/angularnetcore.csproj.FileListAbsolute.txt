@@ -1,0 +1,11 @@
+/Users/kentmcgillivary/WebApp/angularnetcore/bin/Debug/netcoreapp2.0/angularnetcore.deps.json
+/Users/kentmcgillivary/WebApp/angularnetcore/bin/Debug/netcoreapp2.0/angularnetcore.runtimeconfig.json
+/Users/kentmcgillivary/WebApp/angularnetcore/bin/Debug/netcoreapp2.0/angularnetcore.runtimeconfig.dev.json
+/Users/kentmcgillivary/WebApp/angularnetcore/bin/Debug/netcoreapp2.0/angularnetcore.dll
+/Users/kentmcgillivary/WebApp/angularnetcore/bin/Debug/netcoreapp2.0/angularnetcore.pdb
+/Users/kentmcgillivary/WebApp/angularnetcore/obj/Debug/netcoreapp2.0/angularnetcore.csprojResolveAssemblyReference.cache
+/Users/kentmcgillivary/WebApp/angularnetcore/obj/Debug/netcoreapp2.0/angularnetcore.csproj.CoreCompileInputs.cache
+/Users/kentmcgillivary/WebApp/angularnetcore/obj/Debug/netcoreapp2.0/angularnetcore.AssemblyInfoInputs.cache
+/Users/kentmcgillivary/WebApp/angularnetcore/obj/Debug/netcoreapp2.0/angularnetcore.AssemblyInfo.cs
+/Users/kentmcgillivary/WebApp/angularnetcore/obj/Debug/netcoreapp2.0/angularnetcore.dll
+/Users/kentmcgillivary/WebApp/angularnetcore/obj/Debug/netcoreapp2.0/angularnetcore.pdb
