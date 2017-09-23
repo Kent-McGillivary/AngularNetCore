@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TodoApi.Models;
 
 namespace angularnetcore.Controllers
 {
@@ -23,10 +24,25 @@ namespace angularnetcore.Controllers
             return "value";
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
+       /*  // POST api/values
+        [HttpPost("Test")]
+        public string TestPost([FromBody]Object value)
         {
+            return "TestPost"+ value;
+        } */
+
+        [HttpPost("Tyu")]
+        public String Create([FromBody] TodoItem item)
+        {
+   
+            return "test3";
+        }
+
+        [HttpPost("Tyut")]
+        public String Create([FromBody] string item)
+        {
+   
+            return "tyut testing: " + item;
         }
 
         // PUT api/values/5
