@@ -14,6 +14,7 @@ namespace angularnetcore
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("Debug web application");
             BuildWebHost(args).Run();
         }
 

@@ -19,9 +19,10 @@ namespace angularnetcore.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public TodoItem Get(int id)
         {
-            return "value";
+           
+            return new TodoItem{  Id = id,  Name="Test" + id, IsComplete=true };
         }
 
        /*  // POST api/values

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -29,14 +30,32 @@ namespace angularnetcore
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            Console.WriteLine("Configure web app");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+             app.UseMvc();
+            //app.UseMvcWithDefaultRoute();
+            //app.UseMvc();
+            //app.UseDefaultFiles();
+
+            app.Use(async (context, next) =>
+            {
+                await next();
+
+                    
+                if (context.Response.StatusCode == 404
+                    && !Path.HasExtension(context.Request.Path.Value))
+                {
+                    Console.WriteLine("Path 404 error:" + context.Request.Path);
+                    context.Request.Path = "/index.html";
+                    await next();
+                }
+            });
+            app.UseStaticFiles();
 
             app.UseMvc();
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
         }
     }
 }
