@@ -1,3 +1,5 @@
 dist/
 bin/
 obj/
+node_modules/
+.awcache/
