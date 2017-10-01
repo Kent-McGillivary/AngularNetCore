@@ -7,6 +7,7 @@ import { DashboardComponent }   from './dashboard.component';
 import { HeroDetailComponent }  from './hero-detail.component';
 import { HeroesComponent }      from './heroes.component';
 import { HeroService }          from './hero.service';
+import { InnerTestComponent } from './inner-test.component';
 
 import { AppRoutingModule }     from './app-routing.module';
 
@@ -23,7 +24,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     DashboardComponent,
     HeroDetailComponent,
-    HeroesComponent
+    HeroesComponent,
+    InnerTestComponent
   ],
   providers: [ HeroService ],
   bootstrap: [ AppComponent ]
