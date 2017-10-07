@@ -1,3 +1,4 @@
+
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
@@ -13,6 +14,8 @@ import { AppRoutingModule }     from './app-routing.module';
 
 import {HttpClientModule} from '@angular/common/http';
 
+import { ShowTimerComponent } from './show-timer.component';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import {HttpClientModule} from '@angular/common/http';
     DashboardComponent,
     HeroDetailComponent,
     HeroesComponent,
-    InnerTestComponent
+    InnerTestComponent,
+    ShowTimerComponent
   ],
   providers: [ HeroService ],
   bootstrap: [ AppComponent ]

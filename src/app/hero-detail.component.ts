@@ -1,10 +1,14 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit }        from '@angular/core';
+import { Component, OnInit, ViewChild }        from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';
 
 import { Hero }         from './hero';
 import { HeroService }  from './hero.service';
+import {Observable, Subscription} from 'rxjs/Rx';
+
+import { ShowTimerComponent } from './show-timer.component';
+
 @Component({
   selector: 'hero-detail',
   templateUrl: './hero-detail.component.html',
@@ -12,6 +16,12 @@ import { HeroService }  from './hero.service';
 })
 export class HeroDetailComponent implements OnInit {
   hero: Hero;
+  messageShow:boolean =false;
+  showTimer:Observable<number>;
+  showTimerSubscription:Subscription;
+
+  @ViewChild(ShowTimerComponent)
+  private timerComponent: ShowTimerComponent;
 
   constructor(
     private heroService: HeroService,
@@ -27,6 +37,33 @@ export class HeroDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  hideSaveMessage():void {
+    console.log("Hide message");
+    this.messageShow = false;
+    this.showTimerSubscription.unsubscribe();
+  }
+  showSaveMessage(): void {
+    console.log("Show message");
+    
+    if(this.messageShow) { 
+      //Deal with where show is already there need to cancel subscription
+      this.showTimerSubscription.unsubscribe();
+      //Then will reset timer over again
+    }
+    
+    this.messageShow = true;
+    this.showTimer = Observable.timer(12000);
+    this.showTimerSubscription = this.showTimer.subscribe(()=>{this.hideSaveMessage();});
+    
+    
+  }
+
+  save(): void {
+    console.log("Saved information");
+    //this.showSaveMessage();
+    this.timerComponent.showContents();
   }
 }
 
