@@ -1,5 +1,5 @@
 import {Observable, Subscription} from 'rxjs/Rx';
-import { Component, OnInit }        from '@angular/core';
+import { Component, OnInit,Input }        from '@angular/core';
 
 @Component({
     selector: 'show-timer',
@@ -12,6 +12,8 @@ export class ShowTimerComponent {
     showTimer:Observable<number>;
     showTimerSubscription:Subscription;
     showItem = false;
+
+    @Input() timeShowContent = 5000;
 
     private hideContents():void {
         console.log("Hide message");
@@ -28,7 +30,7 @@ export class ShowTimerComponent {
             //Then will reset timer over again
           }
           this.showItem = true;
-          this.showTimer = Observable.timer(12000);
+          this.showTimer = Observable.timer(this.timeShowContent);
           this.showTimerSubscription = this.showTimer.subscribe(()=>{this.hideContents();});
           
     }

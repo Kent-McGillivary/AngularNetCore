@@ -22,7 +22,7 @@ namespace angularnetcore.Controllers
         public TodoItem Get(int id)
         {
            
-            return new TodoItem{  Id = id,  Name="Test" + id, IsComplete=true };
+            return new TodoItem{  Id = id,  Name="TestThtryis" + id, IsComplete=true };
         }
 
        /*  // POST api/values

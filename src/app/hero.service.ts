@@ -28,7 +28,7 @@ export class HeroService {
 
     this.http.get('/api/values/5').subscribe(data => {
       // Read the result field from the JSON response.
-     console.log("Data: " + data);
+     console.log("Data: ", data);
     });
   }
 

@@ -36,15 +36,11 @@ namespace angularnetcore
                 app.UseDeveloperExceptionPage();
             }
              app.UseMvc();
-            //app.UseMvcWithDefaultRoute();
-            //app.UseMvc();
-            //app.UseDefaultFiles();
-
+         
             app.Use(async (context, next) =>
             {
                 await next();
-
-                    
+    
                 if (context.Response.StatusCode == 404
                     && !Path.HasExtension(context.Request.Path.Value))
                 {
@@ -54,8 +50,6 @@ namespace angularnetcore
                 }
             });
             app.UseStaticFiles();
-
-            app.UseMvc();
         }
     }
 }
