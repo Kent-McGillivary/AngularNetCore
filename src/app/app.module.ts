@@ -16,6 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { ShowTimerComponent } from './show-timer.component';
 
+import { LoadingOverlayComponent } from './common/loading-overlay.component';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { ShowTimerComponent } from './show-timer.component';
     HeroDetailComponent,
     HeroesComponent,
     InnerTestComponent,
-    ShowTimerComponent
+    ShowTimerComponent,
+    LoadingOverlayComponent
   ],
   providers: [ HeroService ],
   bootstrap: [ AppComponent ]

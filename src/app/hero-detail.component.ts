@@ -34,10 +34,11 @@ export class HeroDetailComponent implements OnInit, AfterViewInit {
   messageShow:boolean =false;
   showTimer:Observable<number>;
   showTimerSubscription:Subscription;
-
+  loading = false;
+  savingMsg = 'Saving Hero';
   
   private d3Canvas: ElementRef;
-
+  
  
   
    @ViewChild('canva') set content(content: ElementRef) {
@@ -293,9 +294,11 @@ export class HeroDetailComponent implements OnInit, AfterViewInit {
     console.log("Hide message");
     this.messageShow = false;
     this.showTimerSubscription.unsubscribe();
+    this.loading = false;
   }
   showSaveMessage(): void {
     console.log("Show message");
+    this.loading = true;
     
     if(this.messageShow) { 
       //Deal with where show is already there need to cancel subscription
@@ -312,6 +315,12 @@ export class HeroDetailComponent implements OnInit, AfterViewInit {
 
   save(): void {
     console.log("Saved information");
+    this.loading = true;
+    this.showTimer = Observable.timer(20000);
+    this.showTimerSubscription = this.showTimer.subscribe(()=>{
+      this.loading = false;
+    });
+
     //this.showSaveMessage();
     this.timerComponent.showContents();
   }

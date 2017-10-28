@@ -1,15 +1,17 @@
-<div *ngIf="hero">
-    <h2>{{hero.name}} details!</h2>
-    <div>
-      <label>id: </label>{{hero.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="hero.name" placeholder="name" />
-    </div>
-   <show-timer timeShowContent="4000"><div class="saved-msg"> Saved</div></show-timer>
-    <button (click)="goBack()">Back</button>
-    <button (click)="save()">Save</button>
-    <div  class="canvas-graph" #canva >
-       
-    </div>
-  </div>
+<loading-overlay [message]="savingMsg" [loading]="loading">
+    <div *ngIf="hero">
+        <h2>{{hero.name}} details!</h2>
+        <div>
+          <label>id: </label>{{hero.id}}</div>
+        <div>
+          <label>name: </label>
+          <input [(ngModel)]="hero.name" placeholder="name" />
+        </div>
+       <show-timer timeShowContent="4000"><div class="saved-msg"> Saved</div></show-timer>
+        <button (click)="goBack()">Back</button>
+        <button (click)="save()">Save</button>
+        <div  class="canvas-graph" #canva >
+           
+        </div>
+      </div>
+</loading-overlay>
