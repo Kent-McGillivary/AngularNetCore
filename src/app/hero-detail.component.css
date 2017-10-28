@@ -33,30 +33,28 @@ label {
   }
   
   .canvas-graph {
-    width:500px;
+    width:900px;
     height:800px;
     border: 1px solid black;
   }
 
-  .node {
-    cursor: pointer;
-  }
-  
-  .node circle {
+
+  :host ::ng-deep .node circle {
     fill: #fff;
     stroke: steelblue;
-    stroke-width: 1.5px;
+    stroke-width: 3px;
   }
   
-  .node text {
-    font: 10px sans-serif;
+  :host ::ng-deep .node text {
+    font: 12px sans-serif;
   }
   
-  .link {
+  :host ::ng-deep .link {
     fill: none;
     stroke: #ccc;
-    stroke-width: 1.5px;
+    stroke-width: 2px;
   }
+  
   /*
   Copyright 2017 Google Inc. All Rights Reserved.
   Use of this source code is governed by an MIT-style license that

@@ -30,6 +30,7 @@ const METADATA = {
  */
 module.exports = function (options) {
     return webpackMerge(commonConfig({env: ENV}), {
+        devtool: 'cheap-module-source-map',
         output:{
             path: helpers.root('dist'),
             filename: '[name].bundle.js',

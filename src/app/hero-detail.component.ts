@@ -1,6 +1,6 @@
 import { HierarchyChild } from './hierarchy-child';
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit, ViewChild,  AfterViewInit }        from '@angular/core';
+import { Component, OnInit, ViewChild,  AfterViewInit, ElementRef }        from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';
 
@@ -35,11 +35,25 @@ export class HeroDetailComponent implements OnInit, AfterViewInit {
   showTimer:Observable<number>;
   showTimerSubscription:Subscription;
 
+  
+  private d3Canvas: ElementRef;
+
+ 
+  
+   @ViewChild('canva') set content(content: ElementRef) {
+      this.d3Canvas = content;
+      if(this.d3Canvas) {
+        this.createDiagram();
+      }
+     
+   }
+
+
   @ViewChild(ShowTimerComponent)
   private timerComponent: ShowTimerComponent;
 
   height = 750;
-  width = 350;
+  width = 850;
 
   svg:any;
   root:any;
@@ -93,15 +107,7 @@ export class HeroDetailComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit():void {
-    let selectD3Element = d3.select("#canvasd3")
-    this.svg = selectD3Element.append("svg")
-    .attr("width", this.width)
-    .attr("height", this.height)
-  .append("g")
-    .attr("transform", "translate("
-          + 0 + "," + 9 + ")");
-
-          this.update(this.root);
+    
   }
   ngOnInit(): void {
 
@@ -113,6 +119,18 @@ export class HeroDetailComponent implements OnInit, AfterViewInit {
 
     
 
+  }
+
+  createDiagram():void {
+    const element = this.d3Canvas.nativeElement;
+    this.svg = d3.select(element).append("svg")
+    .attr("width", this.width)
+    .attr("height", this.height)
+  .append("g")
+    .attr("transform", "translate("
+          + 120 + "," + 9 + ")");
+
+          this.update(this.root);
   }
 
   update(source:any) {
@@ -139,7 +157,18 @@ export class HeroDetailComponent implements OnInit, AfterViewInit {
           .attr("transform", function(d:any) {
             return "translate(" + source.y0 + "," + source.x0 + ")";
         })
-        .on('click', click);
+        .on('click', (d:any)=>{
+         
+            if (d.children) {
+                d._children = d.children;
+                d.children = null;
+              } else {
+                d.children = d._children;
+                d._children = null;
+              }
+            this.update(d);
+          
+        });
     
       // Add Circle for the nodes
       nodeEnter.append('circle')
