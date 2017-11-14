@@ -1,0 +1,13 @@
+.outer-container {
+    border:1px solid purple;
+    overflow: auto;
+    position: absolute;
+    width: 625px;
+    height: 825px;
+      
+}
+
+.pdf-viewer {
+    width: 600px;
+    height: 800px;
+}

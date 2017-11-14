@@ -149,6 +149,10 @@ module.exports = function (options) {
           ],
           exclude: [/\.(spec|e2e)\.ts$/]
         },
+        {
+          test: /\.(png|jpg)$/,
+          loader: 'url-loader'
+        },
 
         /**
          * To string and css loader support for *.css files (from Angular components)

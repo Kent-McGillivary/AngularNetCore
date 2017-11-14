@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -49,7 +50,14 @@ namespace angularnetcore
                     await next();
                 }
             });
-            app.UseStaticFiles();
+
+             var provider = new FileExtensionContentTypeProvider();
+    // Add new mappings
+    provider.Mappings[".properties"] = "application/property";
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                ContentTypeProvider = provider
+            });
         }
     }
 }

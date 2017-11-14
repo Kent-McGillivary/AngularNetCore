@@ -1,3 +1,4 @@
+import { PdfViewerComponent } from './common/pdf-viewer.component';
 
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
@@ -10,6 +11,7 @@ import { HeroesComponent }      from './heroes.component';
 import { HeroService }          from './hero.service';
 import { InnerTestComponent } from './inner-test.component';
 
+
 import { AppRoutingModule }     from './app-routing.module';
 
 import {HttpClientModule} from '@angular/common/http';
@@ -17,6 +19,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { ShowTimerComponent } from './show-timer.component';
 
 import { LoadingOverlayComponent } from './common/loading-overlay.component';
+
+import { WindowRef } from './common/WindowRef';
 
 @NgModule({
   imports: [
@@ -32,9 +36,10 @@ import { LoadingOverlayComponent } from './common/loading-overlay.component';
     HeroesComponent,
     InnerTestComponent,
     ShowTimerComponent,
-    LoadingOverlayComponent
+    LoadingOverlayComponent,
+    PdfViewerComponent
   ],
-  providers: [ HeroService ],
+  providers: [ HeroService,WindowRef ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
